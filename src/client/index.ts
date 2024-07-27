@@ -12,6 +12,13 @@ const trpc = createTRPCClient<AppRouter>({
 async function main() {
   const allUsers = await trpc.userList.query();
   console.log(allUsers);
+
+  const res2 = await trpc.signUp.mutate({
+    email: "pritam@gmail.com",
+    password: "123",
+  });
+
+  console.log(res2);
 }
 
 main();
